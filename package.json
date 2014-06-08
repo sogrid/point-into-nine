@@ -1,0 +1,39 @@
+{
+  "name": "point-to-nine",
+  "version": "0.0.0",
+  "description": "point-to-nine =============",
+  "main": "Gruntfile.js",
+  "scripts": {
+    "test": "grunt test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sogrid/point-to-nine.git"
+  },
+  "keywords": [
+    "SCSS",
+    "Grid",
+    "CSS"
+  ],
+  "author": "tappily.b",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sogrid/point-to-nine/issues"
+  },
+  "homepage": "https://github.com/sogrid/point-to-nine",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-autoprefixer": "^0.7.4",
+    "grunt-contrib-clean": "^0.5.0",
+    "grunt-contrib-connect": "^0.7.1",
+    "grunt-contrib-copy": "^0.5.0",
+    "grunt-contrib-csslint": "^0.2.0",
+    "grunt-contrib-jshint": "^0.10.0",
+    "grunt-contrib-sass": "^0.7.3",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-gh-pages": "^0.9.1",
+    "grunt-newer": "^0.7.0",
+    "load-grunt-tasks": "^0.4.0",
+    "time-grunt": "^0.3.2"
+  }
+}
