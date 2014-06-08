@@ -1,4 +1,6 @@
 @import "rgb-kind";
+@import "debug";
+@import "slice-vector";
 
 @mixin position-around-image($src) {
   position: relative;
@@ -113,27 +115,11 @@
     0 auto auto 0, 0 auto auto auto, 0 0 auto auto, 
     auto auto auto 0, auto, auto 0 auto auto, 
     auto auto 0 0, auto auto 0 auto, auto 0 0 auto);
-  $offset-matrix: (1 2 3 1 2 3 1 2 3);
-  $y-offsets: (margin-top, margin-bottom);
-  $y-matrix: (1 1 1 2 2 2 3 3 3);
-  
   margin: nth($offsets, $slice);
 }
 
-@mixin cover-interest($point: 50% 50%, $debug: 0) {
-
+@mixin cover-interest($point: 50% 50%) {
   &:before {
-    background-position: $point;
-  }
-  
-  @if $debug > 0 {
-    &:before {
-      opacity: 0.5;
-    }
-    
-    background: linear-gradient(0, magenta, magenta), linear-gradient(0, magenta, magenta);
-    background-size: 1px 1px;
-    background-repeat: repeat-x, repeat-y;
     background-position: $point;
   }
 }
@@ -146,23 +132,13 @@
   @return $basis - $basis * strip-units($length / 100);
 }
 
-@function mod2 ($m, $n, $o: 1) {
-  @return (($m - $o) % $n) + $o;
-}
-
 @mixin align-flex-slice($slice) {
   $options: flex-start, center, flex-end;
-  align-self: nth($options, mod2($slice, length($options)));
+  align-self: nth($options, point-to-nine_slice-vector($slice, 1));
 }
 
 @function aligned-basis-length ($direction, $alignment, $basis, $area-length) {
-  $align-index: 1;
-
-  @if $direction == 1 { //row
-    $align-index: ceil($alignment/3);
-  } @else { //column
-    $align-index: mod2($alignment, 3);
-  }
+  $align-index: point-to-nine_slice-vector($alignment, $direction);
 
   $align-factors: (0, 0, -1);
   $aligned-basis: $basis * nth($align-factors, $align-index);
@@ -238,12 +214,12 @@
 }
 
 
-@mixin position-around($area: 100% 20em, $point: 50% 50%, $direction: row, $items: (), $debug: 0) {
+@mixin position-around($area: 100% 20em, $point: 50% 50%, $direction: row, $items: ()) {
   margin: 0;
   //max-height: 100vh;
   max-width: nth($area, 1);
   min-height: nth($area, 2);
-  @include cover-interest($point, $debug);
+  @include cover-interest($point);
   @include cover-items-around($area, $point, $direction, $items);
 }
 

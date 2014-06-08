@@ -1,0 +1,26 @@
+@mixin point-to-nine_debug($point: 50% 50%, $debug: 0) {
+
+  &:before {
+    opacity: 0.5;
+  }
+
+  $guide: rgba(blue, 0.5);
+  $rule: rgba(magenta, 0.5);
+
+  background:
+    linear-gradient(0, $guide, $guide),
+    linear-gradient(0, $guide, $guide),
+    linear-gradient(0, $rule 1px, transparent 1px),
+    linear-gradient(90deg, $rule 1px, transparent 1px);
+  background-size:
+    1px 1px,
+    1px 1px,
+    1em 1em,
+    1em 1em;
+  background-repeat: repeat-x, repeat-y, repeat, repeat;
+  background-position: $point, $point, 0 0, 0 0;
+
+  :nth-child(1n) {
+    @include rgb-kind(background-color, rgba(limegreen, 0.25));
+  }
+}
