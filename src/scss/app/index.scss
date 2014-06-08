@@ -157,13 +157,13 @@
 
 @function aligned-basis-length ($direction, $alignment, $basis, $area-length) {
   $align-index: 1;
-  
-  @if $direction == column {
+
+  @if $direction == 1 { //row
     $align-index: ceil($alignment/3);
-  } @else {
+  } @else { //column
     $align-index: mod2($alignment, 3);
   }
-  
+
   $align-factors: (0, 0, -1);
   $aligned-basis: $basis * nth($align-factors, $align-index);
   @return abs($aligned-basis + ($basis * strip-units($area-length / 100)));
@@ -173,63 +173,67 @@
   $directions: ( row, column);
   $directional-length: ( min-width, min-height);
   $directional-offset-names: ( margin-top, margin-bottom);
-  
+
   $options: flex-start, center, flex-end;
   $point-basis: nth($point, index($directions, $direction));
   $area-basis: nth($area, index($directions, $direction));
   $length-name: nth($directional-length, index($directions, $direction));
-  
+
   $opposite-directions: ( column, row);
   $opposite-point-basis: nth($point, index($opposite-directions, $direction));
   $opposite-area-basis: nth($area, index($opposite-directions, $direction));
-  
-  $opposite-length-name: nth($directional-length, index($opposite-directions, $direction)); 
-  
+
+  $opposite-length-name: nth($directional-length, index($opposite-directions, $direction));
+
   $length: length($items);
-  
+
   display: flex;
   flex-direction: $direction;
   justify-content: space-between;
-  
+
   @if $length > 0 {
     > :nth-child(1) {
-      
+
       $align-index: nth($items, 1);
-      
+
       @include align-flex-slice($align-index);
-      
+
       what: $length-name;
-      
+
       #{$length-name}: aligned-basis-length(index($opposite-directions, $direction), $align-index, $area-basis, $point-basis);
-      
+
+      direction: index($opposite-directions, $direction);
+      align-index: nth($items, 1);
       opposite-area-basis: $opposite-area-basis;
       opposite-point-basis: $opposite-point-basis;
-      
-      #{$opposite-length-name}: aligned-basis-length($direction, $align-index, $opposite-area-basis, $opposite-point-basis);
-      
+
+      #{$opposite-length-name}: aligned-basis-length(index($directions, $direction), $align-index, $opposite-area-basis, $opposite-point-basis);
+
       @include void-9-slice($align-index);
-      
+
     }
   }
-  
+
   @if $length > 2  {
     > :nth-child(2) {
+      $align-index: nth($items, 2);
+
       @include void-9-slice($align-index);
       @include align-flex-slice(nth($items, 2));
     }
   }
-  
+
   > :nth-child(#{$length}) {
     $align-index: nth($items, $length);
-    
+
     @include align-flex-slice($align-index);
-    
+
     @include void-9-slice($align-index);
-    
+
     align-index: nth($items, $length);
-    
-    #{$length-name}: aligned-basis-length($direction, $align-index, $area-basis, $point-basis);
-    #{$opposite-length-name}: aligned-basis-length($direction, $align-index, $opposite-area-basis, $opposite-point-basis);
+
+    #{$length-name}: aligned-basis-length(index($opposite-directions, $direction), $align-index, $area-basis, $point-basis);
+    #{$opposite-length-name}: aligned-basis-length(index($opposite-directions, $direction), $align-index, $opposite-area-basis, $opposite-point-basis);
   }
 }
 
