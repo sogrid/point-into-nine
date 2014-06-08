@@ -1,0 +1,83 @@
+//imports
+@import "../app/index";
+
+//define
+body {
+  min-height: 100vh;
+  width: 100%;
+}
+
+figure {
+  @include cover-label-layout(40% 40%);
+  @include cover-label();
+}
+
+.context {
+  $area-basis: 25em;
+  $line-basis: 24em;
+  $item-area-basis: ($area-basis * 0.5);
+  $margin: 0;
+  $interest-area: 20em;
+
+  nav,
+  figcaption,
+  aside {
+    @include rgb-kind(background-color, rgba(limegreen, 0.25));
+    display: flex;
+  }
+
+  nav,
+  figcaption,
+  aside {
+    margin: 0;
+    box-sizing: border-box;
+    padding: 3ex 3em;
+    text-align: justify;
+    max-width: $line-basis;
+  }
+
+  @media only screen and (max-width: ($line-basis * 2 + $interest-area + $margin * 2)) {
+    flex-direction: column;
+    border: 1px solid magenta;
+  }
+}
+
+figure:nth-of-type(1) {
+
+  @include position-around(100% 33vmax, 52% 25%, row, 4 9, 1);
+  @include position-around-image('//static.parade.condenast.com/wp-content/uploads/2014/02/03-09-14-Carl-Sagan-ftr.jpg');
+
+  @extend .context;
+
+  figcaption {
+    @include interest-9-slice(8);
+  }
+
+  nav {
+    @include interest-9-slice(5);
+  }
+
+}
+
+figure:nth-of-type(2) {
+  @include position-around(100% 33vmax, 27% 25%, column, 9, 1);
+
+  @include position-around-image('http://wineandbowties.com/wordpress/wp-content/uploads/2013/11/sagansagan.jpg');
+
+  @extend .context;
+
+  figcaption {
+    @include interest-9-slice(5);
+  }
+}
+
+figure:nth-of-type(3) {
+  @include position-around(100% 33vmax, 50% 70%, column, 1, 1);
+  @include position-around-image( '//farm8.staticflickr.com/7270/6992065114_ce85fd20aa_b.jpg');
+
+  @extend .context;
+
+  figcaption {
+    @include interest-9-slice(5);
+  }
+}
