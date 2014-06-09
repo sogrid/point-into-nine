@@ -29,14 +29,14 @@ $figure-y-min: 50vmin;
   aside {
     display: flex;
     box-sizing: border-box;
+    font-size: 1.125rem;
 
     p {
       margin: 0;
-      font-size: 1.125rem;
       //font-size: 1.25vmax;
       font-weight: 300;
       box-sizing: border-box;
-      padding: 3ex 3em;
+      padding: 2ex 2em;
       text-align: justify;
       max-width: $line-basis;
     }
