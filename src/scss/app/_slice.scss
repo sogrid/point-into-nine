@@ -1,5 +1,13 @@
 @import "strip-units";
 
+@mixin point-to-nine_slice-margin($slice: 1) {
+  $offsets: (
+          0 auto auto 0, 0 auto auto auto, 0 0 auto auto,
+          auto auto auto 0, auto, auto 0 auto auto,
+          auto auto 0 0, auto auto 0 auto, auto 0 0 auto);
+  margin: nth($offsets, $slice);
+}
+
 @mixin point-to-nine_slice($slice: 1) {
   $alignments: (flex-start, center, flex-end);
   $alignment-matrix: (1 1 1 2 2 2 3 3 3);
@@ -25,15 +33,9 @@
   @return abs($aligned-basis + ($basis * point-to-nine_strip-units($area-length / 100)));
 }
 
-@mixin point-to-nine_slice-margin($slice: 1) {
-  $offsets: (
-    0 auto auto 0, 0 auto auto auto, 0 0 auto auto,
-    auto auto auto 0, auto, auto 0 auto auto,
-    auto auto 0 0, auto auto 0 auto, auto 0 0 auto);
-  margin: nth($offsets, $slice);
-}
-
 @mixin point-to-nine_slice-align($slice) {
   $options: flex-start, center, flex-end;
   align-self: nth($options, point-to-nine_slice-vector($slice, 1));
+  float: left;
+  @include point-to-nine_slice-margin($slice);
 }

@@ -19,7 +19,6 @@
     > :nth-child(#{$i}) {
       $align-index: nth($items, $i);
       @include point-to-nine_slice-align($align-index);
-      @include point-to-nine_slice-margin($align-index);
 
       $anchor: false;
 
