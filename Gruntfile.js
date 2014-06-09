@@ -37,6 +37,17 @@ module.exports = function (grunt) {
       }
     },
     copy: {
+      scss: {
+        files: [
+          {
+            expand: true,
+            cwd: 'src/scss/app',
+            src: ['**/*'],
+            dest: 'dist/scss/<%= pkg.name %>/',
+            filter: 'isFile'
+          }
+        ]
+      },
       assets: {
         files: [
           {
@@ -114,7 +125,11 @@ module.exports = function (grunt) {
       }
     },
     newer: {},
-    release: {},
+    release: {
+      options: {
+        file: 'bower.json'
+      }
+    },
     watch: {
       options: {
         livereload: true
@@ -148,8 +163,13 @@ module.exports = function (grunt) {
 
   grunt.task.registerTask('default', [ 'test' ]);
   grunt.task.registerTask('test', ['clean', 'jshint', 'sass', 'autoprefixer', 'csslint']);
-  grunt.task.registerTask('build', ['clean', 'jshint', 'sass', 'autoprefixer:dist', 'csslint:dist']);
-  grunt.task.registerTask('site', ['clean', 'jshint', 'copy', 'sass:site', 'autoprefixer:site', 'csslint:site']);
+  grunt.task.registerTask('build', ['clean', 'jshint',
+    'copy:scss',
+    'sass:dist', 'autoprefixer:dist', 'csslint:dist']);
+  grunt.task.registerTask('site', [
+    'clean', 'jshint',
+    'copy:assets', 'copy:html',
+    'sass:site', 'autoprefixer:site', 'csslint:site']);
   grunt.task.registerTask('deploy', ['site', 'gh-pages']);
   grunt.task.registerTask('live', ['site', 'connect:site', 'watch']);
 };

@@ -1,18 +1,23 @@
 //imports
 @import "../app/index";
+@import "play-button";
 
 //define
 body {
-  min-height: 100vh;
-  width: 100%;
+  margin: 0;
+  font-family: 'Lato', sans-serif;
 }
 
 figure {
-  @include cover-label-layout(40% 40%);
-  @include cover-label();
+  nav label {
+    @include play-button(7rem, 40% 40%);
+    @include play-button--theme(white);
+  }
 }
 
-.context {
+$figure-y-min: 50vmin;
+
+@mixin context {
   $area-basis: 25em;
   $line-basis: 24em;
   $item-area-basis: ($area-basis * 0.5);
@@ -22,62 +27,90 @@ figure {
   nav,
   figcaption,
   aside {
-    @include rgb-kind(background-color, rgba(limegreen, 0.25));
     display: flex;
-  }
-
-  nav,
-  figcaption,
-  aside {
-    margin: 0;
     box-sizing: border-box;
-    padding: 3ex 3em;
-    text-align: justify;
-    max-width: $line-basis;
-  }
+    font-size: 1.125rem;
 
-  @media only screen and (max-width: ($line-basis * 2 + $interest-area + $margin * 2)) {
-    flex-direction: column;
-    border: 1px solid magenta;
+    p {
+      margin: 0;
+      //font-size: 1.25vmax;
+      font-weight: 300;
+      box-sizing: border-box;
+      padding: 2ex 2em;
+      text-align: justify;
+      max-width: $line-basis;
+    }
   }
 }
 
 figure:nth-of-type(1) {
-
-  @include position-around(100% 33vmax, 52% 25%, row, 4 9, 1);
-  @include position-around-image('//static.parade.condenast.com/wp-content/uploads/2014/02/03-09-14-Carl-Sagan-ftr.jpg');
-
-  @extend .context;
+  @include point-to-nine(100% $figure-y-min, 52% 25%, row, 5 6);
+  @include point-to-nine_debug(52% 25%);
+  @include point-to-nine_image(url('//static.parade.condenast.com/wp-content/uploads/2014/02/03-09-14-Carl-Sagan-ftr.jpg'), $figure-y-min);
 
   figcaption {
-    @include interest-9-slice(8);
+    @include point-to-nine_slice(4);
   }
 
   nav {
-    @include interest-9-slice(5);
+    @include point-to-nine_slice(5);
   }
 
+  @include context;
+
+  @media only screen and (max-width: 40em) {
+    @include point-to-nine_image--uncover;
+  }
 }
 
 figure:nth-of-type(2) {
-  @include position-around(100% 33vmax, 27% 25%, column, 9, 1);
-
-  @include position-around-image('http://wineandbowties.com/wordpress/wp-content/uploads/2013/11/sagansagan.jpg');
-
-  @extend .context;
+  @include point-to-nine(100% $figure-y-min, 27% 25%, column, 9);
+  @include point-to-nine_debug(27% 25%);
+  @include point-to-nine_image(url('//wineandbowties.com/wordpress/wp-content/uploads/2013/11/sagansagan.jpg'), $figure-y-min);
 
   figcaption {
-    @include interest-9-slice(5);
+    @include point-to-nine_slice(5);
+  }
+
+  @include context;
+
+  @media only screen and (max-width: 40em) {
+    @include point-to-nine_image--uncover;
   }
 }
 
 figure:nth-of-type(3) {
-  @include position-around(100% 33vmax, 50% 70%, column, 1, 1);
-  @include position-around-image( '//farm8.staticflickr.com/7270/6992065114_ce85fd20aa_b.jpg');
-
-  @extend .context;
+  @include point-to-nine(100% $figure-y-min, 50% 70%, column, 1);
+  @include point-to-nine_debug(50% 70%);
+  @include point-to-nine_image(url('//farm8.staticflickr.com/7270/6992065114_ce85fd20aa_b.jpg'), $figure-y-min);
 
   figcaption {
-    @include interest-9-slice(5);
+    @include point-to-nine_slice(5);
+  }
+
+  @include context;
+
+  @media only screen and (max-width: 40em) {
+    @include point-to-nine_image--uncover;
+  }
+}
+
+figure:nth-of-type(4) {
+  @include point-to-nine(100% $figure-y-min, 30% 30%, row, 7 6);
+  @include point-to-nine_debug(30% 30%);
+  @include point-to-nine_image(url('//yuq.me/users/12/481/WJ5hxzK8NU.png'), $figure-y-min);
+
+  figcaption {
+    @include point-to-nine_slice(7);
+  }
+
+  aside {
+    @include point-to-nine_slice(5);
+  }
+
+  @include context;
+
+  @media only screen and (max-width: 40em) {
+    @include point-to-nine_image--uncover;
   }
 }

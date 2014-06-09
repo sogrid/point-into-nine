@@ -1,0 +1,82 @@
+@mixin play-button--theme($color: white) {
+  color: opacify($color, 1);
+  opacity: alpha($color);
+
+  &:before {
+    @include rgb-kind(background-color, rgba(invert($color), 0.25));
+  }
+
+  &:before,
+  &:after {
+    color: inherit;
+  }
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+@mixin play-button($size: 7em, $area: 100% 100%, $cover-duration: 0.15s) {
+  min-width: $size;
+  min-height: $size;
+
+  width: nth($area, 1);
+  height: nth($area, 2);
+  text-indent: -100%;
+  direction: ltr;
+  display: inline-block;
+  position: relative;
+
+  $shade-fill: rgba(black, 0.25);
+  $thin: 0.01875em;
+  $medium: 0.0375em;
+  $thick: 0.05em;
+
+  &:before,
+  &:after {
+    font-size: 7rem;
+    content: "";
+    display: inline-block;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate3d(-50%, -50%, 0);
+    transition: border $cover-duration ease, box-shadow $cover-duration ease;
+  }
+
+  &:after {
+    width: 0;
+    height: 0;
+    border-top: 0.25em solid transparent;
+    border-bottom: 0.25em solid transparent;
+    border-left: 0.42em solid;
+    border-right: 0 solid transparent;
+    margin-left: 0.05em;
+  }
+
+  &:before {
+    box-sizing: border-box;
+    height: 1em;
+    width: 1em;
+    border-radius: 0.5em;
+    @include rgb-kind(background-color, $shade-fill);
+    border: ($thick * 2) solid transparent;
+    box-shadow:
+    inset 0 0 0 $thin,
+    0 0 0 $thick,
+    0 0 $medium $thin $shade-fill;
+
+    margin-right: -0.75em;
+    margin-bottom: -0.25em;
+  }
+
+  &:hover {
+    &:before {
+      border-width: $thick;
+      box-shadow:
+      inset 0 0 0 $thick,
+      0 0 0 $thin,
+      0 0 $medium $thin $shade-fill;
+    }
+  }
+}
