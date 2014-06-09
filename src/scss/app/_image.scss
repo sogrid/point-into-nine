@@ -1,4 +1,4 @@
-@mixin point-to-nine_image($src: none) {
+@mixin point-to-nine_image--cover {
   position: relative;
 
   &:before {
@@ -10,9 +10,24 @@
     top: 0;
     height: 100%;
     width: 100%;
-    background-image: $src;
     background-size: cover;
     background-repeat: no-repeat;
+  }
+}
+
+@mixin point-to-nine_image--uncover {
+  flex-direction: column;
+
+  &:before {
+    position: relative;
+  }
+}
+
+@mixin point-to-nine_image ($src: none, $basis: initial) {
+  &:before {
+    content: "";
+    min-height: $basis;
+    background-image: $src;
   }
 }
 

@@ -43,17 +43,12 @@ figure {
       max-width: $line-basis;
     }
   }
-
-  @media only screen and (max-width: ($line-basis * 2 + $interest-area + $margin * 2)) {
-    flex-direction: column;
-    border: 1px solid magenta;
-  }
 }
 
 figure:nth-of-type(1) {
   @include point-to-nine(100% 50vmin, 52% 25%, row, 5 6);
   @include point-to-nine_debug(52% 25%);
-  @include point-to-nine_image(url('//static.parade.condenast.com/wp-content/uploads/2014/02/03-09-14-Carl-Sagan-ftr.jpg'));
+  @include point-to-nine_image(url('//static.parade.condenast.com/wp-content/uploads/2014/02/03-09-14-Carl-Sagan-ftr.jpg'), 50vmin);
 
   figcaption {
     @include point-to-nine_slice(4);
@@ -64,38 +59,48 @@ figure:nth-of-type(1) {
   }
 
   @extend .context;
+
+  @media only screen and (max-width: 56em) {
+    @include point-to-nine_image--uncover;
+  }
 }
 
 figure:nth-of-type(2) {
   @include point-to-nine(100% 50vmin, 27% 25%, column, 9);
   @include point-to-nine_debug(27% 25%);
-  @include point-to-nine_image(url('//wineandbowties.com/wordpress/wp-content/uploads/2013/11/sagansagan.jpg'));
+  @include point-to-nine_image(url('//wineandbowties.com/wordpress/wp-content/uploads/2013/11/sagansagan.jpg'), 50vmin);
 
   figcaption {
     @include point-to-nine_slice(5);
   }
 
   @extend .context;
+
+  @media only screen and (max-width: 56em) {
+    @include point-to-nine_image--uncover;
+  }
 }
 
 figure:nth-of-type(3) {
   @include point-to-nine(100% 50vmin, 50% 70%, column, 1);
   @include point-to-nine_debug(50% 70%);
-  @include point-to-nine_image(url('//farm8.staticflickr.com/7270/6992065114_ce85fd20aa_b.jpg'));
+  @include point-to-nine_image(url('//farm8.staticflickr.com/7270/6992065114_ce85fd20aa_b.jpg'), 50vmin);
 
   figcaption {
     @include point-to-nine_slice(5);
   }
 
   @extend .context;
+
+  @media only screen and (max-width: 56em) {
+    @include point-to-nine_image--uncover;
+  }
 }
 
 figure:nth-of-type(4) {
   @include point-to-nine(100% 50vmin, 30% 30%, row, 7 6);
   @include point-to-nine_debug(30% 30%);
-  @include point-to-nine_image(url('//yuq.me/users/12/481/WJ5hxzK8NU.png'));
-
-  @extend .context;
+  @include point-to-nine_image(url('//yuq.me/users/12/481/WJ5hxzK8NU.png'), 50vmin);
 
   figcaption {
     @include point-to-nine_slice(7);
@@ -103,5 +108,11 @@ figure:nth-of-type(4) {
 
   aside {
     @include point-to-nine_slice(5);
+  }
+
+  @extend .context;
+
+  @media only screen and (max-width: 56em) {
+    @include point-to-nine_image--uncover;
   }
 }

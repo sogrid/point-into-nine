@@ -8,6 +8,7 @@
   margin: 0;
   max-width: nth($area, 1);
   min-height: nth($area, 2);
+  @include point-to-nine_image--cover;
   @include point-to-nine_image--interest($point);
   @include point-to-nine_items($area, $point, $direction, $alignments);
 }
