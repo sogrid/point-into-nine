@@ -125,7 +125,11 @@ module.exports = function (grunt) {
       }
     },
     newer: {},
-    release: {},
+    release: {
+      options: {
+        file: 'bower.json'
+      }
+    },
     watch: {
       options: {
         livereload: true
