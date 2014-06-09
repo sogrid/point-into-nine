@@ -113,6 +113,7 @@ figure:nth-of-type(1) > :nth-child(1) {
   -webkit-align-self: center;
   -ms-flex-item-align: center;
   align-self: center;
+  float: left;
   margin: auto;
   min-width: 52%;
   min-height: 12.5vmin;
@@ -121,6 +122,7 @@ figure:nth-of-type(1) > :nth-child(2) {
   -webkit-align-self: center;
   -ms-flex-item-align: center;
   align-self: center;
+  float: left;
   margin: auto 0 auto auto;
   min-width: 48%;
   min-height: 12.5vmin;
@@ -167,17 +169,16 @@ figure:nth-of-type(1) aside {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+  font-size: 1.125rem;
 }
 figure:nth-of-type(1) nav p,
 figure:nth-of-type(1) figcaption p,
 figure:nth-of-type(1) aside p {
-  margin: 0;
-  font-size: 1.125rem;
   font-weight: 300;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  padding: 3ex 3em;
+  padding: 2ex 2em;
   text-align: justify;
   max-width: 24em;
 }
@@ -245,6 +246,7 @@ figure:nth-of-type(2) > :nth-child(1) {
   -webkit-align-self: flex-end;
   -ms-flex-item-align: end;
   align-self: flex-end;
+  float: left;
   margin: auto 0 0 auto;
   min-height: 37.5vmin;
   min-width: 73%;
@@ -281,17 +283,16 @@ figure:nth-of-type(2) aside {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+  font-size: 1.125rem;
 }
 figure:nth-of-type(2) nav p,
 figure:nth-of-type(2) figcaption p,
 figure:nth-of-type(2) aside p {
-  margin: 0;
-  font-size: 1.125rem;
   font-weight: 300;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  padding: 3ex 3em;
+  padding: 2ex 2em;
   text-align: justify;
   max-width: 24em;
 }
@@ -359,6 +360,7 @@ figure:nth-of-type(3) > :nth-child(1) {
   -webkit-align-self: flex-start;
   -ms-flex-item-align: start;
   align-self: flex-start;
+  float: left;
   margin: 0 auto auto 0;
   min-height: 35vmin;
   min-width: 50%;
@@ -395,17 +397,16 @@ figure:nth-of-type(3) aside {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+  font-size: 1.125rem;
 }
 figure:nth-of-type(3) nav p,
 figure:nth-of-type(3) figcaption p,
 figure:nth-of-type(3) aside p {
-  margin: 0;
-  font-size: 1.125rem;
   font-weight: 300;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  padding: 3ex 3em;
+  padding: 2ex 2em;
   text-align: justify;
   max-width: 24em;
 }
@@ -473,6 +474,7 @@ figure:nth-of-type(4) > :nth-child(1) {
   -webkit-align-self: flex-end;
   -ms-flex-item-align: end;
   align-self: flex-end;
+  float: left;
   margin: auto auto 0 0;
   min-width: 30%;
   min-height: 35vmin;
@@ -481,6 +483,7 @@ figure:nth-of-type(4) > :nth-child(2) {
   -webkit-align-self: center;
   -ms-flex-item-align: center;
   align-self: center;
+  float: left;
   margin: auto 0 auto auto;
   min-width: 70%;
   min-height: 15vmin;
@@ -527,17 +530,16 @@ figure:nth-of-type(4) aside {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+  font-size: 1.125rem;
 }
 figure:nth-of-type(4) nav p,
 figure:nth-of-type(4) figcaption p,
 figure:nth-of-type(4) aside p {
-  margin: 0;
-  font-size: 1.125rem;
   font-weight: 300;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  padding: 3ex 3em;
+  padding: 2ex 2em;
   text-align: justify;
   max-width: 24em;
 }
