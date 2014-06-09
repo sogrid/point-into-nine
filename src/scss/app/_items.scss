@@ -1,7 +1,6 @@
 @mixin point-to-nine_items($area: 100% 25em, $point: 50% 50%, $direction: row, $items: ()) {
   $directions: ( row, column);
   $directional-length: ( min-width, min-height);
-  $directional-offset-names: ( margin-top, margin-bottom);
   $options: flex-start, center, flex-end;
   $point-basis: nth($point, index($directions, $direction));
   $area-basis: nth($area, index($directions, $direction));
