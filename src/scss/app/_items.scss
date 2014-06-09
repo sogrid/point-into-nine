@@ -1,0 +1,52 @@
+@mixin point-to-nine_items($area: 100% 25em, $point: 50% 50%, $direction: row, $items: ()) {
+  $directions: ( row, column);
+  $directional-length: ( min-width, min-height);
+  $directional-offset-names: ( margin-top, margin-bottom);
+  $options: flex-start, center, flex-end;
+  $point-basis: nth($point, index($directions, $direction));
+  $area-basis: nth($area, index($directions, $direction));
+  $length-name: nth($directional-length, index($directions, $direction));
+  $opposite-directions: ( column, row);
+  $opposite-point-basis: nth($point, index($opposite-directions, $direction));
+  $opposite-area-basis: nth($area, index($opposite-directions, $direction));
+  $opposite-length-name: nth($directional-length, index($opposite-directions, $direction));
+  $length: length($items);
+
+  display: flex;
+  flex-direction: $direction;
+  justify-content: space-between;
+
+  @if $length > 0 {
+    > :nth-child(1) {
+
+      $align-index: nth($items, 1);
+
+      @include point-to-nine_slice-align($align-index);
+
+      #{$length-name}: point-to-nine_slice-align--length(index($opposite-directions, $direction), $align-index, $area-basis, $point-basis);
+      #{$opposite-length-name}: point-to-nine_slice-align--length(index($directions, $direction), $align-index, $opposite-area-basis, $opposite-point-basis);
+
+      @include point-to-nine_slice-margin($align-index);
+
+    }
+  }
+
+  @if $length > 2  {
+    > :nth-child(2) {
+      $align-index: nth($items, 2);
+
+      @include point-to-nine_slice-margin($align-index);
+      @include point-to-nine_slice-align(nth($items, 2));
+    }
+  }
+
+  > :nth-child(#{$length}) {
+    $align-index: nth($items, $length);
+
+    @include point-to-nine_slice-align($align-index);
+    @include point-to-nine_slice-margin($align-index);
+
+    #{$length-name}: point-to-nine_slice-align--length(index($opposite-directions, $direction), $align-index, $area-basis, $point-basis);
+    #{$opposite-length-name}: point-to-nine_slice-align--length(index($directions, $direction), $align-index, $opposite-area-basis, $opposite-point-basis);
+  }
+}

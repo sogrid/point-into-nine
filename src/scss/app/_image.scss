@@ -1,0 +1,23 @@
+@mixin point-to-nine_image($src: none) {
+  position: relative;
+
+  &:before {
+    content: "";
+    display: block;
+    position: absolute;
+    z-index: -1;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-image: $src;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+}
+
+@mixin point-to-nine_image--interest ($point: 50% 50%) {
+  &:before {
+    background-position: $point;
+  }
+}
