@@ -16,37 +16,24 @@
   flex-direction: $direction;
   justify-content: space-between;
 
-  @if $length > 0 {
-    > :nth-child(1) {
-
-      $align-index: nth($items, 1);
-
+  @for $i from 1 through $length {
+    > :nth-child(#{$i}) {
+      $align-index: nth($items, $i);
       @include point-to-nine_slice-align($align-index);
-
-      #{$length-name}: point-to-nine_slice-align--length(index($opposite-directions, $direction), $align-index, $area-basis, $point-basis);
-      #{$opposite-length-name}: point-to-nine_slice-align--length(index($directions, $direction), $align-index, $opposite-area-basis, $opposite-point-basis);
-
       @include point-to-nine_slice-margin($align-index);
 
+      $anchor: false;
+
+      @if $i == 1 {
+        $anchor: true;
+      } @else if $i == $length {
+        $anchor: true;
+      }
+
+      @if anchor {
+        #{$length-name}: point-to-nine_slice-align--length(index($opposite-directions, $direction), $align-index, $area-basis, $point-basis);
+        #{$opposite-length-name}: point-to-nine_slice-align--length(index($directions, $direction), $align-index, $opposite-area-basis, $opposite-point-basis);
+      }
     }
-  }
-
-  @if $length > 2  {
-    > :nth-child(2) {
-      $align-index: nth($items, 2);
-
-      @include point-to-nine_slice-margin($align-index);
-      @include point-to-nine_slice-align(nth($items, 2));
-    }
-  }
-
-  > :nth-child(#{$length}) {
-    $align-index: nth($items, $length);
-
-    @include point-to-nine_slice-align($align-index);
-    @include point-to-nine_slice-margin($align-index);
-
-    #{$length-name}: point-to-nine_slice-align--length(index($opposite-directions, $direction), $align-index, $area-basis, $point-basis);
-    #{$opposite-length-name}: point-to-nine_slice-align--length(index($directions, $direction), $align-index, $opposite-area-basis, $opposite-point-basis);
   }
 }
