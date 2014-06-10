@@ -1,4 +1,4 @@
-@mixin point-to-nine_debug($point: 50% 50%, $debug: 0) {
+@mixin pt9_debug($point: 50% 50%, $debug: 0) {
 
   &:before {
     opacity: 0.5;

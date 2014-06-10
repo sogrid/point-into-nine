@@ -1,4 +1,4 @@
-@mixin point-to-nine_image--cover {
+@mixin pt9_image--cover {
   position: relative;
 
   &:before {
@@ -15,7 +15,7 @@
   }
 }
 
-@mixin point-to-nine_image--uncover {
+@mixin pt9_image--uncover {
   flex-direction: column;
 
   &:before {
@@ -29,7 +29,7 @@
   }
 }
 
-@mixin point-to-nine_image ($src: none, $basis: initial) {
+@mixin pt9_image ($src: none, $basis: initial) {
   &:before {
     content: "";
     min-height: $basis;
@@ -37,7 +37,7 @@
   }
 }
 
-@mixin point-to-nine_image--interest ($point: 50% 50%) {
+@mixin pt9_image--interest ($point: 50% 50%) {
   &:before {
     background-position: $point;
   }
