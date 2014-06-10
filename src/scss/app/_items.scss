@@ -1,25 +1,15 @@
-@mixin point-to-nine_items($area: 100% 25em, $point: 50% 50%, $direction: row, $items: ()) {
-  $directions: ( row, column);
-  $directional-length: ( min-width, min-height);
-  $options: flex-start, center, flex-end;
-  $point-basis: nth($point, index($directions, $direction));
-  $area-basis: nth($area, index($directions, $direction));
-  $length-name: nth($directional-length, index($directions, $direction));
-  $opposite-directions: ( column, row);
-  $opposite-point-basis: nth($point, index($opposite-directions, $direction));
-  $opposite-area-basis: nth($area, index($opposite-directions, $direction));
-  $opposite-length-name: nth($directional-length, index($opposite-directions, $direction));
-  $length: length($items);
+@mixin pt9_items($area: 100% 25em, $point: 50% 50%, $direction: row, $items: ()) {
 
   display: flex;
   flex-direction: $direction;
   justify-content: space-between;
 
+  $length: length($items);
+
   @for $i from 1 through $length {
     > :nth-child(#{$i}) {
-      $align-index: nth($items, $i);
-      @include point-to-nine_slice-align($align-index);
 
+      $align-index: nth($items, $i);
       $anchor: false;
 
       @if $i == 1 {
@@ -27,10 +17,12 @@
       } @else if $i == $length {
         $anchor: true;
       }
-
+      @include pt9_slice--align($align-index);
       @if anchor {
-        #{$length-name}: point-to-nine_slice-align--length(index($opposite-directions, $direction), $align-index, $area-basis, $point-basis);
-        #{$opposite-length-name}: point-to-nine_slice-align--length(index($directions, $direction), $align-index, $opposite-area-basis, $opposite-point-basis);
+        @include pt9_slice--margin(nth($area, 2), nth($point, 2), $align-index);
+        @include pt9_slice--area($area, $point, $direction, $align-index);
+      } @else {
+        @include pt9_slice--margin(0, 0, $align-index);
       }
     }
   }

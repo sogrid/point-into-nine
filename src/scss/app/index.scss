@@ -4,11 +4,11 @@
 @import "slice";
 @import "items";
 
-@mixin point-to-nine($area: 100% 20em, $point: 50% 50%, $direction: row, $alignments: ()) {
+@mixin pt9($area: 100% 20em, $point: 50% 50%, $direction: row, $alignments: ()) {
   margin: 0;
   max-width: nth($area, 1);
   min-height: nth($area, 2);
-  @include point-to-nine_image--cover;
-  @include point-to-nine_image--interest($point);
-  @include point-to-nine_items($area, $point, $direction, $alignments);
+  @include pt9_image--cover;
+  @include pt9_image--interest($point);
+  @include pt9_items($area, $point, $direction, $alignments);
 }
