@@ -1,4 +1,4 @@
-@mixin rgb-kind($property, $color) {
+@mixin pin_rgb-kind($property, $color) {
   #{$property}: opacify($color, 1);
   @if alpha($color) < 1 {
     #{$property}: $color;

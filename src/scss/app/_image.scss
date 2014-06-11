@@ -1,10 +1,10 @@
-@mixin pt9_image--basis($basis:0) {
+@mixin pin_image--basis($basis:0) {
   @if $basis > 0 {
     min-height: $basis;
   }
 }
 
-@mixin pt9_image--cover($basis:0) {
+@mixin pin_image--cover($basis:0) {
   position: relative;
 
   &:before {
@@ -18,11 +18,11 @@
     width: 100%;
     background-size: cover;
     background-repeat: no-repeat;
-    @include pt9_image--basis($basis);
+    @include pin_image--basis($basis);
   }
 }
 
-@mixin pt9_image--uncover {
+@mixin pin_image--uncover {
   flex-direction: column;
 
   &:before {
@@ -36,7 +36,7 @@
   }
 }
 
-@mixin pt9_image ($src: none, $basis: 0) {
+@mixin pin_image ($src: none, $basis: 0) {
   &:before {
     background-image: $src;
     @if $src == none {
@@ -44,11 +44,11 @@
     } @else {
       content: "";
     }
-    @include pt9_image--basis($basis);
+    @include pin_image--basis($basis);
   }
 }
 
-@mixin pt9_image--interest ($point: 50% 50%) {
+@mixin pin_image--interest ($point: 50% 50%) {
   &:before {
     background-position: $point;
   }

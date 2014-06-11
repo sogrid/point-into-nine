@@ -1,3 +1,3 @@
-@function pt9_strip-units($number) {
+@function pin_strip-units($number) {
   @return $number / ($number * 0 + 1);
 }

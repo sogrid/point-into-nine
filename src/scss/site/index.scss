@@ -41,49 +41,49 @@ figure {
 }
 
 figure:nth-of-type(1) {
-  @include pt9(100% 50vmin, 52% 25%, row, ('> nav':4 5, '> figcaption': 6 4));
-  @include pt9_debug(52% 25%);
-  @include pt9_image(url('//static.parade.condenast.com/wp-content/uploads/2014/02/03-09-14-Carl-Sagan-ftr.jpg'));
+  @include pin(100% 50vmin, 52% 25%, row, ('> nav':4 5, '> figcaption': 6 4));
+  @include pin--debug(52% 25%);
+  @include pin_image(url('//static.parade.condenast.com/wp-content/uploads/2014/02/03-09-14-Carl-Sagan-ftr.jpg'));
 
   @include context;
 
   @media only screen and (max-width: 40em) {
-    @include pt9_image--uncover;
+    @include pin_image--uncover;
   }
 }
 
 figure:nth-of-type(2) {
-  @include pt9(100% 50vmin, 27% 25%, column, ('> figcaption':9 5));
-  @include pt9_debug(27% 25%);
-  @include pt9_image(url('//wineandbowties.com/wordpress/wp-content/uploads/2013/11/sagansagan.jpg'));
+  @include pin(100% 50vmin, 27% 25%, column, ('> figcaption':9 5));
+  @include pin--debug(27% 25%);
+  @include pin_image(url('//wineandbowties.com/wordpress/wp-content/uploads/2013/11/sagansagan.jpg'));
 
   @include context;
 
   @media only screen and (max-width: 40em) {
-    @include pt9_image--uncover;
+    @include pin_image--uncover;
   }
 }
 
 figure:nth-of-type(3) {
-  @include pt9(100% 50vmin, 50% 70%, column, ('> figcaption':1 5));
-  @include pt9_debug(50% 70%);
-  @include pt9_image(url('//farm8.staticflickr.com/7270/6992065114_ce85fd20aa_b.jpg'));
+  @include pin(100% 50vmin, 50% 70%, column, ('> figcaption':1 5));
+  @include pin--debug(50% 70%);
+  @include pin_image(url('//farm8.staticflickr.com/7270/6992065114_ce85fd20aa_b.jpg'));
 
   @include context;
 
   @media only screen and (max-width: 40em) {
-    @include pt9_image--uncover;
+    @include pin_image--uncover;
   }
 }
 
 figure:nth-of-type(4) {
-  @include pt9(100% 50rem, 30% 30%, row, ('> figcaption':7 8, '> aside':6 5));
-  @include pt9_debug(30% 30%);
-  @include pt9_image(url('//yuq.me/users/12/481/WJ5hxzK8NU.png'));
+  @include pin(100% 50rem, 30% 30%, row, ('> figcaption':7 8, '> aside':6 5));
+  @include pin--debug(30% 30%);
+  @include pin_image(url('//yuq.me/users/12/481/WJ5hxzK8NU.png'));
 
   @include context;
 
   @media only screen and (max-width: 40em) {
-    @include pt9_image--uncover;
+    @include pin_image--uncover;
   }
 }

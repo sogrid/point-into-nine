@@ -3,7 +3,7 @@
   opacity: alpha($color);
 
   &:before {
-    @include rgb-kind(background-color, rgba(invert($color), 0.25));
+    @include pin_rgb-kind(background-color, rgba(invert($color), 0.25));
   }
 
   &:before,
@@ -59,7 +59,7 @@
     height: 1em;
     width: 1em;
     border-radius: 0.5em;
-    @include rgb-kind(background-color, $shade-fill);
+    @include pin_rgb-kind(background-color, $shade-fill);
     border: ($thick * 2) solid transparent;
     box-shadow:
     inset 0 0 0 $thin,

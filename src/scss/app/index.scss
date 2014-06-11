@@ -1,14 +1,39 @@
 @import "rgb-kind";
-@import "debug";
 @import "image";
 @import "slice";
-@import "items";
+@import "slices";
 
-@mixin pt9($area: 100% 20em, $point: 50% 50%, $direction: row, $alignments: ()) {
+@mixin pin($area: 100% 20em, $point: 50% 50%, $direction: row, $alignments: ()) {
   margin: 0;
   max-width: nth($area, 1);
   min-height: nth($area, 2);
-  @include pt9_image--cover(nth($area, 2));
-  @include pt9_image--interest($point);
-  @include pt9_items($area, $point, $direction, $alignments);
+  @include pin_image--cover(nth($area, 2));
+  @include pin_image--interest($point);
+  @include pin_slices($area, $point, $direction, $alignments);
+}
+
+@mixin pin--debug($point: 50% 50%, $debug: 0) {
+  &:before {
+    opacity: 0.5;
+  }
+
+  $guide: rgba(blue, 0.5);
+  $rule: rgba(magenta, 0.5);
+
+  background:
+  linear-gradient(0, $guide, $guide),
+  linear-gradient(0, $guide, $guide),
+  linear-gradient(0, $rule 1px, transparent 1px),
+  linear-gradient(90deg, $rule 1px, transparent 1px);
+  background-size:
+  1px 1px,
+  1px 1px,
+  1em 1em,
+  1em 1em;
+  background-repeat: repeat-x, repeat-y, repeat, repeat;
+  background-position: $point, $point, 0 0, 0 0;
+
+  :nth-child(1n) {
+    @include pin_rgb-kind(background-color, rgba(limegreen, 0.25));
+  }
 }
