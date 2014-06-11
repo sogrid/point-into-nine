@@ -8,7 +8,7 @@
   margin: 0;
   max-width: nth($area, 1);
   min-height: nth($area, 2);
-  @include pt9_image--cover;
+  @include pt9_image--cover(nth($area, 2));
   @include pt9_image--interest($point);
   @include pt9_items($area, $point, $direction, $alignments);
 }

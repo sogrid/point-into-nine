@@ -26,39 +26,13 @@ $msie-8-10: "screen\0";
   @return nth($opposite-directions, index($directions, $direction));
 }
 
-@mixin pt9_slice--margin($area-length:0, $slice-point:0, $slice:1) {
+@mixin pt9_slice--margin($slice:1) {
   $offsets: (
     0 auto auto 0, 0 auto auto auto, 0 0 auto auto,
     auto auto auto 0, auto auto auto auto, auto 0 auto auto,
     auto auto 0 0, auto auto 0 auto, auto 0 0 auto);
 
-  $margin: nth($offsets, $slice);
-
-  margin: $margin;
-
-  //IE 8, 9 and 10
-  @media #{$msie-8-10} {
-    @if $area-length < 1 {
-
-      margin: $margin;
-
-    } @else {
-
-      $m1: nth($margin, 1);
-      $m3: nth($margin, 3);
-      @if nth($margin, 1) == auto {
-        $m1: $area-length - pt9_slice-align--length(row, $slice, $area-length, $slice-point);
-        @if nth($margin, 3) == auto {
-          $m1: $m1 * 0.5;
-          $m3: $m1;
-        }
-      } @else if nth($margin, 3) == auto {
-        $m3: $area-length - pt9_slice-align--length(row, $slice, $area-length, $slice-point);
-      }
-
-      margin: unquote($m1 + ' ' + nth($margin, 2) + ' ' + $m3 + ' ' + nth($margin, 4));
-    }
-  }
+  margin: nth($offsets, $slice);
 }
 
 @mixin pt9_slice--area($area, $point, $direction, $slice) {
