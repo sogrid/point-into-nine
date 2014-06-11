@@ -1,0 +1,69 @@
+//imports
+@import "strip-units";
+
+//define
+@function pin_slice-vector($slice-index, $direction) {
+  @if $direction == row {
+    @return ceil($slice-index/3);
+  }
+  //column
+  @return (($slice-index - 1) % 3) + 1;
+}
+
+@function pin_slice-align--length ($direction, $alignment, $area-length, $slice-point) {
+  $align-index: pin_slice-vector($alignment, $direction);
+  $align-factors: (0, 0, -1);
+  $aligned-basis: $area-length * nth($align-factors, $align-index);
+  @return abs($aligned-basis + ($area-length * pin_strip-units($slice-point / 100)));
+}
+
+@function pin_o-direction($direction) {
+  $directions: (row, column);
+  $opposite-directions: (column, row);
+  @return nth($opposite-directions, index($directions, $direction));
+}
+
+@mixin pin_slice--margin($slice:1) {
+  $offsets: (
+    0 auto auto 0, 0 auto auto auto, 0 0 auto auto,
+    auto auto auto 0, auto auto auto auto, auto 0 auto auto,
+    auto auto 0 0, auto auto 0 auto, auto 0 0 auto);
+
+  margin: nth($offsets, $slice);
+}
+
+@mixin pin_slice--area($area, $point, $direction, $slice) {
+  $directions: (row, column);
+  $o-directions: (column, row);
+  $o-direction: pin_o-direction($direction);
+  $directional-length: (min-width, min-height);
+
+  $direction-index: index($directions, $direction);
+  $point-basis: nth($point, $direction-index);
+  $area-basis: nth($area, $direction-index);
+  $length-name: nth($directional-length, $direction-index);
+
+  $o-direction-index: index($o-directions, $direction);
+  $o-point-basis: nth($point, $o-direction-index);
+  $o-area-basis: nth($area, $o-direction-index);
+  $o-length-name: nth($directional-length, $o-direction-index);
+
+  #{$length-name}: pin_slice-align--length($o-direction, $slice, $area-basis, $point-basis);
+  #{$o-length-name}: pin_slice-align--length($direction, $slice, $o-area-basis, $o-point-basis);
+}
+
+@mixin pin_slice--align($slice) {
+  $alignments: flex-start, center, flex-end;
+  align-self: nth($alignments, pin_slice-vector($slice, 1));
+  float: left;
+}
+
+@mixin pin_slice-content($slice: 1, $direction: row) {
+  $alignments: (flex-start, center, flex-end);
+  align-items: nth(
+      $alignments,
+      pin_slice-vector($slice, $direction));
+  justify-content: nth(
+      $alignments,
+      pin_slice-vector($slice, pin_o-direction($direction)));
+}
