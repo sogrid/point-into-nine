@@ -1,4 +1,10 @@
-@mixin pt9_image--cover {
+@mixin pt9_image--basis($basis:0) {
+  @if $basis > 0 {
+    min-height: $basis;
+  }
+}
+
+@mixin pt9_image--cover($basis:0) {
   position: relative;
 
   &:before {
@@ -12,6 +18,7 @@
     width: 100%;
     background-size: cover;
     background-repeat: no-repeat;
+    @include pt9_image--basis($basis);
   }
 }
 
@@ -29,11 +36,15 @@
   }
 }
 
-@mixin pt9_image ($src: none, $basis: initial) {
+@mixin pt9_image ($src: none, $basis: 0) {
   &:before {
-    content: "";
-    min-height: $basis;
     background-image: $src;
+    @if $src == none {
+      content: $src;
+    } @else {
+      content: "";
+    }
+    @include pt9_image--basis($basis);
   }
 }
 

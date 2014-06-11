@@ -4,25 +4,17 @@
   flex-direction: $direction;
   justify-content: space-between;
 
-  $length: length($items);
-
-  @for $i from 1 through $length {
-    > :nth-child(#{$i}) {
-
-      $align-index: nth($items, $i);
-      $anchor: false;
-
-      @if $i == 1 {
-        $anchor: true;
-      } @else if $i == $length {
-        $anchor: true;
+  @each $selection, $slice in $items {
+    #{$selection} {
+      $length: length($slice);
+      @if $length > 0 {
+        $slice-self: nth($slice, 1);
+        @include pt9_slice--align($slice-self);
+        @include pt9_slice--area($area, $point, $direction, $slice-self);
+        @include pt9_slice--margin($slice-self);
       }
-      @include pt9_slice--align($align-index);
-      @if anchor {
-        @include pt9_slice--margin(nth($area, 2), nth($point, 2), $align-index);
-        @include pt9_slice--area($area, $point, $direction, $align-index);
-      } @else {
-        @include pt9_slice--margin(0, 0, $align-index);
+      @if $length > 1 {
+        @include pt9_slice-content(nth($slice, 2));
       }
     }
   }
