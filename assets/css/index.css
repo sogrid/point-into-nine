@@ -105,51 +105,36 @@ figure:nth-of-type(1):before {
   -webkit-background-size: cover;
   background-size: cover;
   background-repeat: no-repeat;
+  min-height: 50vmin;
 }
 figure:nth-of-type(1):before {
   background-position: 52% 25%;
 }
-figure:nth-of-type(1) > :nth-child(1) {
-  -webkit-align-self: center;
-  -ms-flex-item-align: center;
-  align-self: center;
+figure:nth-of-type(1) > nav {
+  -webkit-align-self: flex-start;
+  -ms-flex-item-align: start;
+  align-self: flex-start;
   float: left;
-  margin: auto auto auto auto;
   min-width: 52%;
   min-height: 12.5vmin;
+  margin: auto auto auto 0;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
 }
-@media screen\0 {
-  figure:nth-of-type(1) > :nth-child(1) {
-    margin: 18.75vmin auto 18.75vmin auto;
-  }
-}
-figure:nth-of-type(1) > :nth-child(2) {
+figure:nth-of-type(1) > figcaption {
   -webkit-align-self: flex-end;
   -ms-flex-item-align: end;
   align-self: flex-end;
   float: left;
-  margin: auto 0 auto auto;
   min-width: 48%;
   min-height: 12.5vmin;
-}
-@media screen\0 {
-  figure:nth-of-type(1) > :nth-child(2) {
-    margin: 18.75vmin 0 18.75vmin auto;
-  }
-}
-figure:nth-of-type(1):before {
-  opacity: 0.5;
-}
-figure:nth-of-type(1) :nth-child(1n) {
-  background-color: limegreen;
-  background-color: rgba(50, 205, 50, 0.25);
-}
-figure:nth-of-type(1):before {
-  content: "";
-  min-height: 50vmin;
-  background-image: url("//static.parade.condenast.com/wp-content/uploads/2014/02/03-09-14-Carl-Sagan-ftr.jpg");
-}
-figure:nth-of-type(1) figcaption {
+  margin: auto 0 auto auto;
   -webkit-box-align: center;
   -webkit-align-items: center;
   -ms-flex-align: center;
@@ -159,15 +144,16 @@ figure:nth-of-type(1) figcaption {
   -ms-flex-pack: start;
   justify-content: flex-start;
 }
-figure:nth-of-type(1) nav {
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+figure:nth-of-type(1):before {
+  opacity: 0.5;
+}
+figure:nth-of-type(1) :nth-child(1n) {
+  background-color: limegreen;
+  background-color: rgba(50, 205, 50, 0.25);
+}
+figure:nth-of-type(1):before {
+  background-image: url("//static.parade.condenast.com/wp-content/uploads/2014/02/03-09-14-Carl-Sagan-ftr.jpg");
+  content: "";
 }
 figure:nth-of-type(1) nav,
 figure:nth-of-type(1) figcaption,
@@ -206,7 +192,7 @@ figure:nth-of-type(1) aside p {
   }
   figure:nth-of-type(1) > :nth-child(1n) {
     margin: auto;
-    min-height: initial;
+    min-height: 0;
   }
 }
 
@@ -248,23 +234,27 @@ figure:nth-of-type(2):before {
   -webkit-background-size: cover;
   background-size: cover;
   background-repeat: no-repeat;
+  min-height: 50vmin;
 }
 figure:nth-of-type(2):before {
   background-position: 27% 25%;
 }
-figure:nth-of-type(2) > :nth-child(1) {
+figure:nth-of-type(2) > figcaption {
   -webkit-align-self: flex-end;
   -ms-flex-item-align: end;
   align-self: flex-end;
   float: left;
-  margin: auto 0 0 auto;
   min-height: 37.5vmin;
   min-width: 73%;
-}
-@media screen\0 {
-  figure:nth-of-type(2) > :nth-child(1) {
-    margin: 12.5vmin 0 0 auto;
-  }
+  margin: auto 0 0 auto;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
 }
 figure:nth-of-type(2):before {
   opacity: 0.5;
@@ -274,19 +264,8 @@ figure:nth-of-type(2) :nth-child(1n) {
   background-color: rgba(50, 205, 50, 0.25);
 }
 figure:nth-of-type(2):before {
-  content: "";
-  min-height: 50vmin;
   background-image: url("//wineandbowties.com/wordpress/wp-content/uploads/2013/11/sagansagan.jpg");
-}
-figure:nth-of-type(2) figcaption {
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+  content: "";
 }
 figure:nth-of-type(2) nav,
 figure:nth-of-type(2) figcaption,
@@ -325,7 +304,7 @@ figure:nth-of-type(2) aside p {
   }
   figure:nth-of-type(2) > :nth-child(1n) {
     margin: auto;
-    min-height: initial;
+    min-height: 0;
   }
 }
 
@@ -367,23 +346,27 @@ figure:nth-of-type(3):before {
   -webkit-background-size: cover;
   background-size: cover;
   background-repeat: no-repeat;
+  min-height: 50vmin;
 }
 figure:nth-of-type(3):before {
   background-position: 50% 70%;
 }
-figure:nth-of-type(3) > :nth-child(1) {
+figure:nth-of-type(3) > figcaption {
   -webkit-align-self: flex-start;
   -ms-flex-item-align: start;
   align-self: flex-start;
   float: left;
-  margin: 0 auto auto 0;
   min-height: 35vmin;
   min-width: 50%;
-}
-@media screen\0 {
-  figure:nth-of-type(3) > :nth-child(1) {
-    margin: 0 auto 15vmin 0;
-  }
+  margin: 0 auto auto 0;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
 }
 figure:nth-of-type(3):before {
   opacity: 0.5;
@@ -393,19 +376,8 @@ figure:nth-of-type(3) :nth-child(1n) {
   background-color: rgba(50, 205, 50, 0.25);
 }
 figure:nth-of-type(3):before {
-  content: "";
-  min-height: 50vmin;
   background-image: url("//farm8.staticflickr.com/7270/6992065114_ce85fd20aa_b.jpg");
-}
-figure:nth-of-type(3) figcaption {
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+  content: "";
 }
 figure:nth-of-type(3) nav,
 figure:nth-of-type(3) figcaption,
@@ -444,14 +416,14 @@ figure:nth-of-type(3) aside p {
   }
   figure:nth-of-type(3) > :nth-child(1n) {
     margin: auto;
-    min-height: initial;
+    min-height: 0;
   }
 }
 
 figure:nth-of-type(4) {
   margin: 0;
   max-width: 100%;
-  min-height: 50vmin;
+  min-height: 50rem;
   position: relative;
   display: -webkit-box;
   display: -webkit-flex;
@@ -486,51 +458,19 @@ figure:nth-of-type(4):before {
   -webkit-background-size: cover;
   background-size: cover;
   background-repeat: no-repeat;
+  min-height: 50rem;
 }
 figure:nth-of-type(4):before {
   background-position: 30% 30%;
 }
-figure:nth-of-type(4) > :nth-child(1) {
+figure:nth-of-type(4) > figcaption {
   -webkit-align-self: flex-start;
   -ms-flex-item-align: start;
   align-self: flex-start;
   float: left;
-  margin: auto auto 0 0;
   min-width: 30%;
-  min-height: 35vmin;
-}
-@media screen\0 {
-  figure:nth-of-type(4) > :nth-child(1) {
-    margin: 15vmin auto 0 0;
-  }
-}
-figure:nth-of-type(4) > :nth-child(2) {
-  -webkit-align-self: flex-end;
-  -ms-flex-item-align: end;
-  align-self: flex-end;
-  float: left;
-  margin: auto 0 auto auto;
-  min-width: 70%;
-  min-height: 15vmin;
-}
-@media screen\0 {
-  figure:nth-of-type(4) > :nth-child(2) {
-    margin: 17.5vmin 0 17.5vmin auto;
-  }
-}
-figure:nth-of-type(4):before {
-  opacity: 0.5;
-}
-figure:nth-of-type(4) :nth-child(1n) {
-  background-color: limegreen;
-  background-color: rgba(50, 205, 50, 0.25);
-}
-figure:nth-of-type(4):before {
-  content: "";
-  min-height: 50vmin;
-  background-image: url("//yuq.me/users/12/481/WJ5hxzK8NU.png");
-}
-figure:nth-of-type(4) figcaption {
+  min-height: 35rem;
+  margin: auto auto 0 0;
   -webkit-box-align: end;
   -webkit-align-items: flex-end;
   -ms-flex-align: end;
@@ -540,7 +480,14 @@ figure:nth-of-type(4) figcaption {
   -ms-flex-pack: center;
   justify-content: center;
 }
-figure:nth-of-type(4) aside {
+figure:nth-of-type(4) > aside {
+  -webkit-align-self: flex-end;
+  -ms-flex-item-align: end;
+  align-self: flex-end;
+  float: left;
+  min-width: 70%;
+  min-height: 15rem;
+  margin: auto 0 auto auto;
   -webkit-box-align: center;
   -webkit-align-items: center;
   -ms-flex-align: center;
@@ -549,6 +496,17 @@ figure:nth-of-type(4) aside {
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
+}
+figure:nth-of-type(4):before {
+  opacity: 0.5;
+}
+figure:nth-of-type(4) :nth-child(1n) {
+  background-color: limegreen;
+  background-color: rgba(50, 205, 50, 0.25);
+}
+figure:nth-of-type(4):before {
+  background-image: url("//yuq.me/users/12/481/WJ5hxzK8NU.png");
+  content: "";
 }
 figure:nth-of-type(4) nav,
 figure:nth-of-type(4) figcaption,
@@ -587,7 +545,7 @@ figure:nth-of-type(4) aside p {
   }
   figure:nth-of-type(4) > :nth-child(1n) {
     margin: auto;
-    min-height: initial;
+    min-height: 0;
   }
 }
 
