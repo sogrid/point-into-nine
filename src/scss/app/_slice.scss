@@ -1,6 +1,6 @@
 //imports
 @import "strip-units";
-
+@import "ie";
 //define
 @function pin_slice-vector($slice-index, $direction) {
   @if $direction == row {
@@ -31,6 +31,38 @@
 
   margin: nth($offsets, $slice);
 }
+
+@mixin pin_slice--margin-ie($area-length, $slice-point, $direction, $order, $slice) {
+  $directions: (row, column);
+  $margin-factors: (1, 0, 0, 1);
+
+  $offsets: (
+          0 auto auto 0, 0 auto auto auto, 0 0 auto auto,
+          auto auto auto 0, auto auto auto auto, auto 0 auto auto,
+          auto auto 0 0, auto auto 0 auto, auto 0 0 auto);
+
+  $margin: nth($offsets, $slice);
+
+  @media #{$pin_ie-8-10} {
+    $top: nth($margin, 1);
+    $right: nth($margin, 2);
+    $bottom: nth($margin, 3);
+    $left: nth($margin, 4);
+
+    @if $top == auto {
+      $top: $area-length - pin_slice-align--length(row, $slice, $area-length, $slice-point);
+      @if $bottom == auto {
+        $top: $top * 0.5;
+        $bottom: $top;
+      }
+    } @else if $bottom == auto {
+      $bottom: $area-length - pin_slice-align--length(row, $slice, $area-length, $slice-point);
+    }
+
+    margin: unquote($top + ' ' + $right + ' ' + $bottom + ' ' + $left);
+  }
+}
+
 
 @mixin pin_slice--area($area, $point, $direction, $slice) {
   $directions: (row, column);
@@ -66,4 +98,21 @@
   justify-content: nth(
       $alignments,
       pin_slice-vector($slice, pin_o-direction($direction)));
+}
+
+@mixin pin_slice-content-ie($slice: 1, $direction: row) {
+
+  @media #{$pin_ie-8-10} {
+    display: table;
+
+    > :nth-child(n) {
+      display: table-cell;
+    }
+  }
+
+  @media #{$pin_ie-8-10} {
+    > * {
+      display: table-cell;
+    }
+  }
 }

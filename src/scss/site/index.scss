@@ -27,10 +27,9 @@ figure {
   aside {
     display: flex;
     box-sizing: border-box;
-    font-size: 1.125rem;
 
     p {
-      //font-size: 1.25vmax;
+      font-size: 1.125rem;
       font-weight: 300;
       box-sizing: border-box;
       padding: 2ex 2em;
@@ -40,10 +39,10 @@ figure {
   }
 }
 
-figure:nth-of-type(1) {
-  @include pin(100% 50vmin, 52% 25%, row, ('> nav':4 5, '> figcaption': 6 4));
+.test-1 {
+  @include pin(100% 50em, 52% 25%, row, ('> nav' 4 5, '> figcaption' 9 4));
   @include pin--debug(52% 25%);
-  @include pin_image(url('//static.parade.condenast.com/wp-content/uploads/2014/02/03-09-14-Carl-Sagan-ftr.jpg'));
+  @include pin_image('//static.parade.condenast.com/wp-content/uploads/2014/02/03-09-14-Carl-Sagan-ftr.jpg');
 
   @include context;
 
@@ -52,10 +51,10 @@ figure:nth-of-type(1) {
   }
 }
 
-figure:nth-of-type(2) {
-  @include pin(100% 50vmin, 27% 25%, column, ('> figcaption':9 5));
+.test-2 {
+  @include pin(100% 50em, 27% 25%, column, ('> figcaption' 9 5,));
   @include pin--debug(27% 25%);
-  @include pin_image(url('//wineandbowties.com/wordpress/wp-content/uploads/2013/11/sagansagan.jpg'));
+  @include pin_image('//wineandbowties.com/wordpress/wp-content/uploads/2013/11/sagansagan.jpg');
 
   @include context;
 
@@ -64,10 +63,10 @@ figure:nth-of-type(2) {
   }
 }
 
-figure:nth-of-type(3) {
-  @include pin(100% 50vmin, 50% 70%, column, ('> figcaption':1 5));
+.test-3 {
+  @include pin(100% 50em, 50% 70%, column, ('> figcaption' 1 5,));
   @include pin--debug(50% 70%);
-  @include pin_image(url('//farm8.staticflickr.com/7270/6992065114_ce85fd20aa_b.jpg'));
+  @include pin_image('//farm8.staticflickr.com/7270/6992065114_ce85fd20aa_b.jpg');
 
   @include context;
 
@@ -76,10 +75,10 @@ figure:nth-of-type(3) {
   }
 }
 
-figure:nth-of-type(4) {
-  @include pin(100% 50rem, 30% 30%, row, ('> figcaption':7 8, '> aside':6 5));
+.test-4 {
+  @include pin(100% 50em, 30% 30%, row, ('> figcaption' 7 8, '> aside' 6 5));
   @include pin--debug(30% 30%);
-  @include pin_image(url('//yuq.me/users/12/481/WJ5hxzK8NU.png'));
+  @include pin_image('//yuq.me/users/12/481/WJ5hxzK8NU.png');
 
   @include context;
 

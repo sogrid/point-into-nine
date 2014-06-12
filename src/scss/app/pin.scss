@@ -2,10 +2,11 @@
 @import "image";
 @import "slice";
 @import "slices";
+@import "ie";
 
 @mixin pin($area: 100% 20em, $point: 50% 50%, $direction: row, $alignments: ()) {
   margin: 0;
-  max-width: nth($area, 1);
+  width: nth($area, 1);
   min-height: nth($area, 2);
   @include pin_image--cover(nth($area, 2));
   @include pin_image--interest($point);
@@ -33,7 +34,13 @@
   background-repeat: repeat-x, repeat-y, repeat, repeat;
   background-position: $point, $point, 0 0, 0 0;
 
-  :nth-child(1n) {
+  > :nth-child(n) {
     @include pin_rgb-kind(background-color, rgba(limegreen, 0.25));
+  }
+
+  @media #{$pin_ie-8-10} {
+    > * {
+      @include pin_rgb-kind(background-color, rgba(limegreen, 0.25));
+    }
   }
 }

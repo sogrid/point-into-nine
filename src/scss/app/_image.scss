@@ -30,7 +30,7 @@
     height: auto;
   }
 
-  > :nth-child(1n) {
+  > :nth-child(n) {
     margin: auto;
     min-height: 0;
   }
@@ -38,11 +38,9 @@
 
 @mixin pin_image ($src: none, $basis: 0) {
   &:before {
-    background-image: $src;
+    background-image: url($src);
     @if $src == none {
       content: $src;
-    } @else {
-      content: "";
     }
     @include pin_image--basis($basis);
   }

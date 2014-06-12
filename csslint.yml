@@ -5,3 +5,4 @@ font-sizes: false
 gradients: false
 known-properties: false
 regex-selectors: false
+universal-selector: false
