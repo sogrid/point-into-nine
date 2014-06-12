@@ -6,7 +6,7 @@
     "tappily <tappily.b@gmail.com>"
   ],
   "description": "An arbitraty point delineates up to four nine-align areas.",
-  "main": "dist/scss/point-into-nine/pin.scss",
+  "main": "src/scss/app/pin.scss",
   "license": "MIT",
   "ignore": [
     "**/.*",
