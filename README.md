@@ -6,7 +6,7 @@ Layout configuration with the following parameters:
 1. area to accompy
 2. point of interest
 3. slice orientation
-4. element alignments eg. $selector: $orient-slice:1-9 $align-contents: 1-9
+4. element alignments eg. $selector $orient-slice:1-9 $align-contents:1-9
 
 ```css
 figure:nth-of-type(1) {
