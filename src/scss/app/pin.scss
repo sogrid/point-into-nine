@@ -3,17 +3,10 @@
 @import "slice";
 @import "slices";
 @import "ie";
+@import "measured";
 
-@mixin pin($area: 100% 20em, $point: 50% 50%, $direction: row, $alignments: ()) {
-  margin: 0;
-  width: nth($area, 1);
-  min-height: nth($area, 2);
-  @include pin_image--cover(nth($area, 2));
-  @include pin_image--interest($point);
-  @include pin_slices($area, $point, $direction, $alignments);
-}
 
-@mixin pin--debug($point: 50% 50%, $debug: 0) {
+@mixin pin--debug($point: 50% 50%) {
   &:before {
     opacity: 0.5;
   }
@@ -44,3 +37,21 @@
     }
   }
 }
+
+@mixin pin($area: 100% 20em, $point: 50% 50%, $direction: row, $alignments: (), $debug:0) {
+  display: table;
+  display: flex;
+  flex-direction: $direction;
+  justify-content: space-between;
+  margin: 0;
+  @include pin_measured(width, nth($area, 1));
+  @include pin_measured(min-height, nth($area, 2));
+  @include pin_image--cover(nth($area, 2));
+  @include pin_image--interest($point);
+  @include pin_slices($area, $point, $direction, $alignments);
+
+  @if $debug > 0 {
+    @include pin--debug($point);
+  }
+}
+

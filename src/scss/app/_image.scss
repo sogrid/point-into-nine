@@ -1,6 +1,7 @@
+@import "measured";
 @mixin pin_image--basis($basis:0) {
   @if $basis > 0 {
-    min-height: $basis;
+    @include pin_measured(min-height, $basis);
   }
 }
 

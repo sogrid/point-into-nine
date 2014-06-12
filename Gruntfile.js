@@ -157,20 +157,20 @@ module.exports = function (grunt) {
       },
       scss: {
         files: 'src/**/*.scss',
-        tasks: ['sass:site', 'newer:autoprefixer:site', 'newer:csslint:site']
+        tasks: ['sass:site', 'newer:autoprefixer:site']
       }
     }
   });
 
   grunt.task.registerTask('default', [ 'test' ]);
-  grunt.task.registerTask('test', ['clean', 'jshint', 'sass', 'autoprefixer', 'csslint']);
+  grunt.task.registerTask('test', ['clean', 'jshint', 'sass', 'autoprefixer']);
   grunt.task.registerTask('build', ['clean', 'jshint',
     'copy:scss',
-    'sass:dist', 'autoprefixer:dist', 'csslint:dist']);
+    'sass:dist', 'autoprefixer:dist']);
   grunt.task.registerTask('site', [
     'clean', 'jshint',
     'copy:assets', 'copy:html',
-    'sass:site', 'autoprefixer:site', 'csslint:site']);
+    'sass:site', 'autoprefixer:site']);
   grunt.task.registerTask('deploy', ['site', 'gh-pages']);
   grunt.task.registerTask('live', ['site', 'connect:site', 'watch']);
 };
