@@ -1,6 +1,7 @@
 //imports
 @import "strip-units";
-
+@import "ie";
+@import "measured";
 //define
 @function pin_slice-vector($slice-index, $direction) {
   @if $direction == row {
@@ -14,7 +15,7 @@
   $align-index: pin_slice-vector($alignment, $direction);
   $align-factors: (0, 0, -1);
   $aligned-basis: $area-length * nth($align-factors, $align-index);
-  @return abs($aligned-basis + ($area-length * pin_strip-units($slice-point / 100)));
+  @return floor(abs($aligned-basis + ($area-length * pin_strip-units($slice-point / 100))));
 }
 
 @function pin_o-direction($direction) {
@@ -31,6 +32,40 @@
 
   margin: nth($offsets, $slice);
 }
+
+@mixin pin_slice--margin-ie($area-length, $slice-point, $direction, $order, $slice) {
+  $directions: (row, column);
+  $margin-factors: (1, 0, 0, 1);
+
+  $offsets: (
+          0 auto auto 0, 0 auto auto auto, 0 0 auto auto,
+          auto auto auto 0, auto auto auto auto, auto 0 auto auto,
+          auto auto 0 0, auto auto 0 auto, auto 0 0 auto);
+
+  $margin: nth($offsets, $slice);
+
+  @media #{$pin_ie-8-10} {
+    $top: nth($margin, 1);
+    $right: nth($margin, 2);
+    $bottom: nth($margin, 3);
+    $left: nth($margin, 4);
+
+    @if $top == auto {
+      $top: $area-length - pin_slice-align--length(row, $slice, $area-length, $slice-point);
+      @if $bottom == auto {
+        $top: $top * 0.5;
+        $bottom: $top;
+      }
+    } @else if $bottom == auto {
+      $bottom: $area-length - pin_slice-align--length(row, $slice, $area-length, $slice-point);
+    }
+    @include pin_measured(margin-top, $top);
+    @include pin_measured(margin-right, $right);
+    @include pin_measured(margin-bottom, $bottom);
+    @include pin_measured(margin-left, $left);
+  }
+}
+
 
 @mixin pin_slice--area($area, $point, $direction, $slice) {
   $directions: (row, column);

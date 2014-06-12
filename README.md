@@ -6,11 +6,11 @@ Layout configuration with the following parameters:
 1. area to accompy
 2. point of interest
 3. slice orientation
-4. element alignments eg. $selector: $orient-slice:1-9 $align-contents: 1-9
+4. element alignments eg. $selector $orient-slice:1-9 $align-contents:1-9
 
 ```css
 figure:nth-of-type(1) {
-  @include pin(100% 50vmin, 52% 25%, row, ('> nav': 4 5, '> figcaption': 6 4));
+  @include pin(100% 50vmin, 52% 25%, row, ('> nav' 4 5, '> figcaption' 6 4));
 }
 ```
 ###pin--debug

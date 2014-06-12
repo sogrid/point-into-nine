@@ -1,20 +1,18 @@
 @mixin pin_slices($area: 100% 25em, $point: 50% 50%, $direction: row, $items: ()) {
-
-  display: flex;
-  flex-direction: $direction;
-  justify-content: space-between;
-
-  @each $selection, $slice in $items {
-    #{$selection} {
+  @each $slice in $items {
+    #{nth($slice, 1)} {
+      font-size: inherit; //supports fully relative basis values like 'em' with kindness to browsers like IE8.
       $length: length($slice);
-      @if $length > 0 {
-        $slice-self: nth($slice, 1);
+      @if $length > 1 {
+        $slice-self: nth($slice, 2);
         @include pin_slice--align($slice-self);
         @include pin_slice--area($area, $point, $direction, $slice-self);
         @include pin_slice--margin($slice-self);
+        @include pin_slice--margin-ie(nth($area,2), nth($point, 2), $direction, index($items, $slice), $slice-self);
       }
-      @if $length > 1 {
-        @include pin_slice-content(nth($slice, 2));
+      @if $length > 2 {
+        @include pin_slice-content(nth($slice, 3));
+        @include pin_slice-content-ie(nth($slice, 3));
       }
     }
   }

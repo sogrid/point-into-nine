@@ -1,0 +1,14 @@
+@import "strip-units";
+
+@mixin pin_measured($property, $value) {
+  @if type_of($value) == number {
+    $unit: unit($value);
+    @if $unit == 'rem' {
+      #{$property}: round(16px * pin_strip-units($value));
+    } @else if $unit == 'vmin' {
+      #{$property}: pin_strip-units($value) + vm;
+    }
+  }
+
+  #{$property}: $value;
+}
