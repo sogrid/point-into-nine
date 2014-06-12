@@ -10,7 +10,7 @@ Layout configuration with the following parameters:
 
 ```css
 figure:nth-of-type(1) {
-  @include pin(100% 50vmin, 52% 25%, row, ('> nav': 4 5, '> figcaption': 6 4));
+  @include pin(100% 50vmin, 52% 25%, row, ('> nav' 4 5, '> figcaption' 6 4));
 }
 ```
 ###pin--debug
