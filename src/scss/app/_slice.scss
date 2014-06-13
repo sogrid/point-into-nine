@@ -94,6 +94,8 @@
 }
 
 @mixin pin_slice-content($slice: 1, $direction: row) {
+  display: flex;
+  box-sizing: border-box;
   $alignments: (flex-start, center, flex-end);
   align-items: nth(
       $alignments,

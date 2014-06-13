@@ -12,7 +12,6 @@
       }
       @if $length > 2 {
         @include pin_slice-content(nth($slice, 3));
-        @include pin_slice-content-ie(nth($slice, 3));
       }
     }
   }

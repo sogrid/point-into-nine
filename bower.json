@@ -1,12 +1,12 @@
 {
   "name": "point-into-nine",
-  "version": "0.0.3",
+  "version": "0.0.3-1",
   "homepage": "https://github.com/sogrid/point-into-nine",
   "authors": [
     "tappily <tappily.b@gmail.com>"
   ],
   "description": "An arbitraty point delineates up to four nine-align areas.",
-  "main": "dist/scss/point-into-nine/pin.scss",
+  "main": "src/scss/app/pin.scss",
   "license": "MIT",
   "ignore": [
     "**/.*",
